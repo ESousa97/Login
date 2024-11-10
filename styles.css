@@ -76,7 +76,7 @@ input:focus {
     background-color: #357ABD;
 }
 
-.additional-links {
+.additional-links, .additional-terms {
     margin-top: 20px;
     text-align: center;
     display: flex;
@@ -85,16 +85,22 @@ input:focus {
     gap: 10px; /* Espaço entre os itens */
 }
 
-.additional-links a {
+.additional-links a, .additional-terms a {
     color: #4a90e2;
     text-decoration: none;
     font-size: 0.9em;
     transition: color 0.3s ease;
 }
 
-.additional-links a:hover {
+.additional-links a:hover, .additional-terms a:hover {
     color: #357ABD;
 }
+
+
+.additional-terms {
+    font-size: 12px;
+}
+
 
 .icon {
     width: 25px;
@@ -131,4 +137,59 @@ input:focus {
 a {
     text-decoration: none;
     color: #ffffff;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px; /* Ajusta a distância da parte inferior */
+    left: 20px; /* Ajusta a distância da lateral esquerda */
+    font-size: 0.9em; /* Tamanho da fonte para o footer */
+    color: #ffffff; /* Cor do texto, você pode ajustar conforme necessário */
+    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif; /* Garante a consistência da fonte */
+}
+
+@media (max-width: 600px) {
+    footer {
+        position: fixed;
+        bottom: 5px; /* Menor distância da parte inferior */
+        left: 5px; /* Menor distância da lateral esquerda */
+        font-size: 0.7em; /* Tamanho menor da fonte */
+        color: #ffffff; /* Cor do texto */
+    }
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        width: 90%; /* Reduz a largura para caber melhor em telas pequenas */
+        padding: 20px; /* Reduz o padding para economizar espaço */
+    }
+
+    .login-title {
+        font-size: 1.5em; /* Diminui o tamanho da fonte do título */
+    }
+
+    .input-group label {
+        font-size: 0.8em; /* Diminui o tamanho da fonte das labels */
+    }
+
+    .input-group input {
+        font-size: 0.9em; /* Diminui o tamanho da fonte dos inputs */
+        padding: 8px; /* Reduz o padding dos inputs */
+    }
+
+    .login-button {
+        font-size: 0.9em; /* Diminui o tamanho da fonte do botão */
+        padding: 8px; /* Reduz o padding do botão */
+    }
+
+    .additional-links {
+        flex-direction: column; /* Alinha os links verticalmente */
+        gap: 5px; /* Reduz o espaço entre os links */
+    }
+
+    .icon {
+        width: 20px; /* Reduz o tamanho dos ícones */
+        height: 20px; /* Mantém a proporção reduzida */
+        margin-left: 0; /* Remove o espaçamento à esquerda */
+    }
 }
