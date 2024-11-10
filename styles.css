@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4a90e2, #7f23f8);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-box {
+    background-color: #1f1f1f;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #4a90e2;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.login-button:hover {
+    background-color: #357ABD;
+}
+
+.additional-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.additional-links a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.additional-links a:hover {
+    color: #357ABD;
+}
+
+.login-network {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.login-network a {
+    background-color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.login-network a:hover {
+    background-color: #4a90e2;
+}
