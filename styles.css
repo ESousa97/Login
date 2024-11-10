@@ -79,6 +79,10 @@ input:focus {
 .additional-links {
     margin-top: 20px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre os itens */
 }
 
 .additional-links a {
@@ -90,6 +94,17 @@ input:focus {
 
 .additional-links a:hover {
     color: #357ABD;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 5px; /* Espaçamento à esquerda dos ícones */
+    transition: transform 0.3s ease; /* Transição suave para hover */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Aumenta o ícone suavemente ao passar o mouse */
 }
 
 .login-network {
