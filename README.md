@@ -436,4 +436,3 @@ Para detalhes completos, consulte o arquivo [LICENSE](https://github.com/ESousa9
 
 
 > ✨ **Criado em:** 10 de nov. de 2024 às 19:22
-
