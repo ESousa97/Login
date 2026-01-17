@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "lint": "npm run lint:html && npm run lint:css",
-    "lint:html": "html-validate \"**/*.html\"",
-    "lint:css": "stylelint \"**/*.css\"",
+    "lint:html": "html-validate \"*.html\" \"components/**/*.html\"",
+    "lint:css": "stylelint \"*.css\" \"components/**/*.css\"",
     "format": "prettier --write \"**/*.{html,css,md,json,yml,yaml}\"",
     "format:check": "prettier --check \"**/*.{html,css,md,json,yml,yaml}\"",
     "test": "node --test",
