@@ -1,195 +1,196 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4a90e2, #7f23f8);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+  font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4a90e2, #7f23f8);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .login-box {
-    background-color: #1f1f1f;
-    width: 100%;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #1f1f1f;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-title {
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #ffffff;
 }
 
 .input-group {
-    width: 100%;
-    margin-bottom: 15px;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 label {
-    font-size: 0.9em;
-    color: #bbb;
+  font-size: 0.9em;
+  color: #bbb;
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 8px;
-    background-color: #333;
-    color: #fff;
-    font-size: 1em;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
 }
 
 input:focus {
-    outline: none;
-    border: 2px solid #4a90e2;
+  outline: none;
+  border: 2px solid #4a90e2;
 }
 
 .login-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a90e2;
-    color: #fff;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
 }
 
 .login-button:hover {
-    background-color: #357ABD;
+  background-color: #357abd;
 }
 
-.additional-links, .additional-terms {
-    margin-top: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Espaço entre os itens */
+.additional-links,
+.additional-terms {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os itens */
 }
 
-.additional-links a, .additional-terms a {
-    color: #4a90e2;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: color 0.3s ease;
+.additional-links a,
+.additional-terms a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
 }
 
-.additional-links a:hover, .additional-terms a:hover {
-    color: #357ABD;
+.additional-links a:hover,
+.additional-terms a:hover {
+  color: #357abd;
 }
-
 
 .additional-terms {
-    font-size: 12px;
+  font-size: 12px;
 }
 
-
 .icon {
-    width: 25px;
-    height: 25px;
-    margin-left: 5px; /* Espaçamento à esquerda dos ícones */
-    transition: transform 0.3s ease; /* Transição suave para hover */
+  width: 25px;
+  height: 25px;
+  margin-left: 5px; /* Espaçamento à esquerda dos ícones */
+  transition: transform 0.3s ease; /* Transição suave para hover */
 }
 
 .icon:hover {
-    transform: scale(1.1); /* Aumenta o ícone suavemente ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o ícone suavemente ao passar o mouse */
 }
 
 .login-network {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .login-network a {
-    background-color: #333;
-    padding: 8px 15px;
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85em;
-    transition: background-color 0.3s ease;
+  background-color: #333;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85em;
+  transition: background-color 0.3s ease;
 }
 
 .login-network a:hover {
-    background-color: #4a90e2;
+  background-color: #4a90e2;
 }
 
 a {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 footer {
+  position: fixed;
+  bottom: 20px; /* Ajusta a distância da parte inferior */
+  left: 20px; /* Ajusta a distância da lateral esquerda */
+  font-size: 0.9em; /* Tamanho da fonte para o footer */
+  color: #ffffff; /* Cor do texto, você pode ajustar conforme necessário */
+  font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif; /* Garante a consistência da fonte */
+}
+
+@media (max-width: 600px) {
+  footer {
     position: fixed;
-    bottom: 20px; /* Ajusta a distância da parte inferior */
-    left: 20px; /* Ajusta a distância da lateral esquerda */
-    font-size: 0.9em; /* Tamanho da fonte para o footer */
-    color: #ffffff; /* Cor do texto, você pode ajustar conforme necessário */
-    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif; /* Garante a consistência da fonte */
+    bottom: 5px; /* Menor distância da parte inferior */
+    left: 5px; /* Menor distância da lateral esquerda */
+    font-size: 0.7em; /* Tamanho menor da fonte */
+    color: #ffffff; /* Cor do texto */
+  }
 }
 
 @media (max-width: 600px) {
-    footer {
-        position: fixed;
-        bottom: 5px; /* Menor distância da parte inferior */
-        left: 5px; /* Menor distância da lateral esquerda */
-        font-size: 0.7em; /* Tamanho menor da fonte */
-        color: #ffffff; /* Cor do texto */
-    }
-}
+  .login-box {
+    width: 90%; /* Reduz a largura para caber melhor em telas pequenas */
+    padding: 20px; /* Reduz o padding para economizar espaço */
+  }
 
-@media (max-width: 600px) {
-    .login-box {
-        width: 90%; /* Reduz a largura para caber melhor em telas pequenas */
-        padding: 20px; /* Reduz o padding para economizar espaço */
-    }
+  .login-title {
+    font-size: 1.5em; /* Diminui o tamanho da fonte do título */
+  }
 
-    .login-title {
-        font-size: 1.5em; /* Diminui o tamanho da fonte do título */
-    }
+  .input-group label {
+    font-size: 0.8em; /* Diminui o tamanho da fonte das labels */
+  }
 
-    .input-group label {
-        font-size: 0.8em; /* Diminui o tamanho da fonte das labels */
-    }
+  .input-group input {
+    font-size: 0.9em; /* Diminui o tamanho da fonte dos inputs */
+    padding: 8px; /* Reduz o padding dos inputs */
+  }
 
-    .input-group input {
-        font-size: 0.9em; /* Diminui o tamanho da fonte dos inputs */
-        padding: 8px; /* Reduz o padding dos inputs */
-    }
+  .login-button {
+    font-size: 0.9em; /* Diminui o tamanho da fonte do botão */
+    padding: 8px; /* Reduz o padding do botão */
+  }
 
-    .login-button {
-        font-size: 0.9em; /* Diminui o tamanho da fonte do botão */
-        padding: 8px; /* Reduz o padding do botão */
-    }
+  .additional-links {
+    flex-direction: column; /* Alinha os links verticalmente */
+    gap: 5px; /* Reduz o espaço entre os links */
+  }
 
-    .additional-links {
-        flex-direction: column; /* Alinha os links verticalmente */
-        gap: 5px; /* Reduz o espaço entre os links */
-    }
-
-    .icon {
-        width: 20px; /* Reduz o tamanho dos ícones */
-        height: 20px; /* Mantém a proporção reduzida */
-        margin-left: 0; /* Remove o espaçamento à esquerda */
-    }
+  .icon {
+    width: 20px; /* Reduz o tamanho dos ícones */
+    height: 20px; /* Mantém a proporção reduzida */
+    margin-left: 0; /* Remove o espaçamento à esquerda */
+  }
 }

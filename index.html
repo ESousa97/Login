@@ -1,578 +1,675 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Enhanced Login</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #4a90e2, #7f23f8);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Animated background particles */
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+        animation: backgroundShift 20s ease-in-out infinite;
+      }
+
+      @keyframes backgroundShift {
+        0%,
+        100% {
+          transform: rotate(0deg) scale(1);
         }
-
-        body {
-            font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #4a90e2, #7f23f8);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
+        50% {
+          transform: rotate(180deg) scale(1.1);
         }
+      }
 
-        /* Animated background particles */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
-            animation: backgroundShift 20s ease-in-out infinite;
+      /* Floating particles */
+      .floating-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+      }
+
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 20%;
+        animation-delay: -3s;
+      }
+      .particle:nth-child(3) {
+        left: 30%;
+        animation-delay: -6s;
+      }
+      .particle:nth-child(4) {
+        left: 40%;
+        animation-delay: -9s;
+      }
+      .particle:nth-child(5) {
+        left: 50%;
+        animation-delay: -12s;
+      }
+      .particle:nth-child(6) {
+        left: 60%;
+        animation-delay: -2s;
+      }
+      .particle:nth-child(7) {
+        left: 70%;
+        animation-delay: -5s;
+      }
+      .particle:nth-child(8) {
+        left: 80%;
+        animation-delay: -8s;
+      }
+      .particle:nth-child(9) {
+        left: 90%;
+        animation-delay: -11s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
         }
-
-        @keyframes backgroundShift {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
+        10% {
+          opacity: 1;
         }
-
-        /* Floating particles */
-        .floating-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        90% {
+          opacity: 1;
         }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
         }
+      }
 
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: -3s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: -6s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: -9s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: -12s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: -2s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: -5s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: -8s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: -11s; }
+      .login-box {
+        background: rgba(31, 31, 31, 0.95);
+        width: 100%;
+        max-width: 420px;
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 25px 45px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-style: preserve-3d;
+      }
 
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(360deg);
-                opacity: 0;
-            }
+      @keyframes slideInUp {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 60px, 0) rotateX(30deg);
         }
+        100% {
+          opacity: 1;
+          transform: translate3d(0, 0, 0) rotateX(0deg);
+        }
+      }
 
+      .login-title {
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(135deg, #ffffff, #e0e0e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes titleGlow {
+        0% {
+          text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+        100% {
+          text-shadow: 0 0 30px rgba(127, 35, 248, 0.5);
+        }
+      }
+
+      .input-group {
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      label {
+        font-size: 0.9em;
+        color: #bbb;
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+        transition: color 0.3s ease;
+      }
+
+      .input-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(51, 51, 51, 0.8);
+        color: #fff;
+        font-size: 1em;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        z-index: 2;
+      }
+
+      .input-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+        transition: left 0.6s ease;
+        z-index: 1;
+      }
+
+      input:focus {
+        outline: none;
+        background: rgba(51, 51, 51, 1);
+        box-shadow:
+          0 0 0 2px rgba(74, 144, 226, 0.5),
+          0 8px 25px rgba(74, 144, 226, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .input-wrapper:focus-within::before {
+        left: 100%;
+      }
+
+      .input-group:focus-within label {
+        color: #4a90e2;
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #4a90e2, #357abd);
+        color: #fff;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+      }
+
+      .login-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+      }
+
+      .login-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+        background: linear-gradient(135deg, #5ba0f2, #4080cd);
+      }
+
+      .login-button:hover::before {
+        left: 100%;
+      }
+
+      .login-button:active {
+        transform: translateY(-1px);
+        transition: transform 0.1s ease;
+      }
+
+      .login-button a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .additional-links,
+      .additional-terms {
+        margin-top: 25px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .additional-links a,
+      .additional-terms a {
+        color: #4a90e2;
+        text-decoration: none;
+        font-size: 0.95em;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+
+      .additional-links a::before,
+      .additional-terms a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(74, 144, 226, 0.1);
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .additional-links a:hover,
+      .additional-terms a:hover {
+        color: #5ba0f2;
+        transform: translateY(-2px);
+      }
+
+      .additional-links a:hover::before,
+      .additional-terms a:hover::before {
+        opacity: 1;
+      }
+
+      .additional-terms {
+        font-size: 12px;
+        margin-top: 15px;
+      }
+
+      .icon {
+        width: 28px;
+        height: 28px;
+        margin-left: 8px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-radius: 6px;
+        padding: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .icon:hover {
+        transform: scale(1.15) rotate(5deg);
+        background: rgba(74, 144, 226, 0.2);
+        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+      }
+
+      footer {
+        position: fixed;
+        bottom: 25px;
+        left: 25px;
+        font-size: 0.9em;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300;
+        z-index: 10;
+        padding: 12px 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      footer:hover {
+        background: rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 6px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-links a:hover {
+        color: #4a90e2;
+        background: rgba(74, 144, 226, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .footer-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
         .login-box {
-            background: rgba(31, 31, 31, 0.95);
-            width: 100%;
-            max-width: 420px;
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 25px 45px rgba(0, 0, 0, 0.3),
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-            animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            transform-style: preserve-3d;
+          width: 90%;
+          padding: 30px 25px;
+          margin: 20px;
         }
-
-        @keyframes slideInUp {
-            0% {
-                opacity: 0;
-                transform: translate3d(0, 60px, 0) rotateX(30deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translate3d(0, 0, 0) rotateX(0deg);
-            }
-        }
-
-
 
         .login-title {
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #ffffff;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, #ffffff, #e0e0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 2s ease-in-out infinite alternate;
+          font-size: 2em;
         }
 
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 20px rgba(74, 144, 226, 0.3); }
-            100% { text-shadow: 0 0 30px rgba(127, 35, 248, 0.5); }
-        }
-
-        .input-group {
-            width: 100%;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        label {
-            font-size: 0.9em;
-            color: #bbb;
-            font-weight: 500;
-            margin-bottom: 8px;
-            display: block;
-            transition: color 0.3s ease;
-        }
-
-        .input-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-        }
-
-        input {
-            width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 12px;
-            background: rgba(51, 51, 51, 0.8);
-            color: #fff;
-            font-size: 1em;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            z-index: 2;
-        }
-
-        .input-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
-            transition: left 0.6s ease;
-            z-index: 1;
-        }
-
-        input:focus {
-            outline: none;
-            background: rgba(51, 51, 51, 1);
-            box-shadow: 
-                0 0 0 2px rgba(74, 144, 226, 0.5),
-                0 8px 25px rgba(74, 144, 226, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .input-wrapper:focus-within::before {
-            left: 100%;
-        }
-
-        .input-group:focus-within label {
-            color: #4a90e2;
-        }
-
-        .login-button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #4a90e2, #357ABD);
-            color: #fff;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
-        }
-
-        .login-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .login-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
-            background: linear-gradient(135deg, #5ba0f2, #4080cd);
-        }
-
-        .login-button:hover::before {
-            left: 100%;
-        }
-
-        .login-button:active {
-            transform: translateY(-1px);
-            transition: transform 0.1s ease;
-        }
-
-        .login-button a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .additional-links, .additional-terms {
-            margin-top: 25px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .additional-links a, .additional-terms a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-size: 0.95em;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            padding: 8px 12px;
-            border-radius: 8px;
-        }
-
-        .additional-links a::before, .additional-terms a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(74, 144, 226, 0.1);
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .additional-links a:hover, .additional-terms a:hover {
-            color: #5ba0f2;
-            transform: translateY(-2px);
-        }
-
-        .additional-links a:hover::before, .additional-terms a:hover::before {
-            opacity: 1;
-        }
-
-        .additional-terms {
-            font-size: 12px;
-            margin-top: 15px;
+        .additional-links {
+          flex-direction: column;
+          gap: 10px;
         }
 
         .icon {
-            width: 28px;
-            height: 28px;
-            margin-left: 8px;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border-radius: 6px;
-            padding: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .icon:hover {
-            transform: scale(1.15) rotate(5deg);
-            background: rgba(74, 144, 226, 0.2);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+          width: 24px;
+          height: 24px;
+          margin-left: 0;
         }
 
         footer {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.8);
-            font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 300;
-            z-index: 10;
-            padding: 12px 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        footer:hover {
-            background: rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
+          bottom: 15px;
+          left: 15px;
+          font-size: 0.8em;
+          padding: 8px 12px;
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
         }
 
         .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+          gap: 8px;
         }
+      }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 6px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+      /* Pulse animation for interactive elements */
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
         }
-
-        .footer-links a:hover {
-            color: #4a90e2;
-            background: rgba(74, 144, 226, 0.1);
-            transform: translateY(-1px);
+        70% {
+          box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
         }
-
-        .footer-icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        100% {
+          box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
         }
+      }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .login-box {
-                width: 90%;
-                padding: 30px 25px;
-                margin: 20px;
-            }
+      .login-button:focus {
+        animation: pulse 2s infinite;
+      }
 
-            .login-title {
-                font-size: 2em;
-            }
+      /* Loading state animation */
+      .loading {
+        position: relative;
+        overflow: hidden;
+      }
 
-            .additional-links {
-                flex-direction: column;
-                gap: 10px;
-            }
+      .loading::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: loading 1.5s infinite;
+      }
 
-            .icon {
-                width: 24px;
-                height: 24px;
-                margin-left: 0;
-            }
-
-            footer {
-                bottom: 15px;
-                left: 15px;
-                font-size: 0.8em;
-                padding: 8px 12px;
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-
-            .footer-links {
-                gap: 8px;
-            }
+      @keyframes loading {
+        0% {
+          left: -100%;
         }
-
-
-
-        /* Pulse animation for interactive elements */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+        100% {
+          left: 100%;
         }
-
-        .login-button:focus {
-            animation: pulse 2s infinite;
-        }
-
-        /* Loading state animation */
-        .loading {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="floating-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
     </div>
 
     <div class="login-box">
-        <h1 class="login-title">Login</h1>
-        <div class="input-group">
-            <label for="username">User</label>
-            <div class="input-wrapper">
-                <input type="text" id="username" placeholder="Enter your username">
-            </div>
+      <h1 class="login-title">Login</h1>
+      <div class="input-group">
+        <label for="username">User</label>
+        <div class="input-wrapper">
+          <input type="text" id="username" placeholder="Enter your username" />
         </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <div class="input-wrapper">
-                <input type="password" id="password" placeholder="Enter your password">
-            </div>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" placeholder="Enter your password" />
         </div>
-        <button class="login-button" type="button" data-target="#login-link" onclick="simulateLoading(this)">
-            <span class="button-label">Login</span>
-        </button>
-        <div class="additional-links">
-            <a href="#reset-password-link">Reset password</a>
-            <a href="#microsoft-login-link" aria-label="Login with Microsoft">
-                <svg width="800px" height="800px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
-                    <rect x="17" y="17" width="10" height="10" fill="#FEBA08"/>
-                    <rect x="5" y="17" width="10" height="10" fill="#05A6F0"/>
-                    <rect x="17" y="5" width="10" height="10" fill="#80BC06"/>
-                    <rect x="5" y="5" width="10" height="10" fill="#F25325"/>
-                </svg>
-            </a>
-            <a href="#google-login-link" aria-label="Login with Google">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px" class="icon">
-                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
-                    <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
-                    <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
-                    <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
-                </svg>
-            </a>
-        </div>
-        <div class="additional-terms">
-            <a href="#link-privacy">privacy</a>
-            <a href="#link-terms">terms</a>
-        </div>
+      </div>
+      <button
+        class="login-button"
+        type="button"
+        data-target="#login-link"
+        onclick="simulateLoading(this)"
+      >
+        <span class="button-label">Login</span>
+      </button>
+      <div class="additional-links">
+        <a href="#reset-password-link">Reset password</a>
+        <a href="#microsoft-login-link" aria-label="Login with Microsoft">
+          <svg
+            width="800px"
+            height="800px"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+          >
+            <rect x="17" y="17" width="10" height="10" fill="#FEBA08" />
+            <rect x="5" y="17" width="10" height="10" fill="#05A6F0" />
+            <rect x="17" y="5" width="10" height="10" fill="#80BC06" />
+            <rect x="5" y="5" width="10" height="10" fill="#F25325" />
+          </svg>
+        </a>
+        <a href="#google-login-link" aria-label="Login with Google">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            width="24px"
+            height="24px"
+            class="icon"
+          >
+            <path
+              fill="#FFC107"
+              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+            />
+            <path
+              fill="#FF3D00"
+              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+            />
+            <path
+              fill="#4CAF50"
+              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+            />
+            <path
+              fill="#1976D2"
+              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="additional-terms">
+        <a href="#link-privacy">privacy</a>
+        <a href="#link-terms">terms</a>
+      </div>
     </div>
 
     <footer>
-        <span>by José Enoque</span>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/enoque-sousa-bb89aa168/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-                <svg class="footer-icon" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-            </a>
-            <a href="https://github.com/ESousa97" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
-                <svg class="footer-icon" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-        </div>
+      <span>by José Enoque</span>
+      <div class="footer-links">
+        <a
+          href="https://www.linkedin.com/in/enoque-sousa-bb89aa168/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <svg class="footer-icon" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://github.com/ESousa97"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+          aria-label="GitHub"
+        >
+          <svg class="footer-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+      </div>
     </footer>
 
     <script>
-        function simulateLoading(button) {
-            const label = button.querySelector('.button-label');
-            const target = button.dataset.target;
+      function simulateLoading(button) {
+        const label = button.querySelector('.button-label');
+        const target = button.dataset.target;
 
-            button.classList.add('loading');
-            if (label) {
-                label.textContent = 'Logging in...';
-            }
-
-            setTimeout(() => {
-                button.classList.remove('loading');
-                if (label) {
-                    label.textContent = 'Login';
-                }
-                if (target) {
-                    window.location.hash = target;
-                }
-            }, 2000);
+        button.classList.add('loading');
+        if (label) {
+          label.textContent = 'Logging in...';
         }
 
-        // Add interactive particle effects on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const speed = (index + 1) * 0.01;
-                const x = (e.clientX * speed) % window.innerWidth;
-                const y = (e.clientY * speed) % window.innerHeight;
-                particle.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-            });
+        setTimeout(() => {
+          button.classList.remove('loading');
+          if (label) {
+            label.textContent = 'Login';
+          }
+          if (target) {
+            window.location.hash = target;
+          }
+        }, 2000);
+      }
+
+      // Add interactive particle effects on mouse move
+      document.addEventListener('mousemove', (e) => {
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+          const speed = (index + 1) * 0.01;
+          const x = (e.clientX * speed) % window.innerWidth;
+          const y = (e.clientY * speed) % window.innerHeight;
+          particle.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+      });
+
+      // Enhanced input focus effects
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach((input) => {
+        input.addEventListener('focus', function () {
+          // Focus effect without scale
         });
 
-        // Enhanced input focus effects
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                // Focus effect without scale
-            });
-            
-            input.addEventListener('blur', function() {
-                // Blur effect without scale
-            });
+        input.addEventListener('blur', function () {
+          // Blur effect without scale
         });
+      });
 
-        // Smooth scroll and page load animations
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-            document.querySelector('.login-box').style.animation = 'slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        });
+      // Smooth scroll and page load animations
+      window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+        document.querySelector('.login-box').style.animation =
+          'slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      });
     </script>
-</body>
+  </body>
 </html>

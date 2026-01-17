@@ -1,42 +1,42 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Centraliza verticalmente */
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(135deg, #ececec, #f3f3f3); /* Fundo gradiente suave */
-    text-align: center;
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    color: #4a4a4a; /* Cor do texto mais elegante */
-    overflow: hidden; /* Remove o scroll desnecessário */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente */
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #ececec, #f3f3f3); /* Fundo gradiente suave */
+  text-align: center;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  color: #4a4a4a; /* Cor do texto mais elegante */
+  overflow: hidden; /* Remove o scroll desnecessário */
 }
 
 h1 {
-    font-size: 2.5rem; /* Aumenta o tamanho para mais destaque */
-    font-weight: 700; /* Torna o título mais robusto */
-    margin-bottom: 1rem;
-    color: #2c3e50; /* Cor mais sofisticada */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  font-size: 2.5rem; /* Aumenta o tamanho para mais destaque */
+  font-weight: 700; /* Torna o título mais robusto */
+  margin-bottom: 1rem;
+  color: #2c3e50; /* Cor mais sofisticada */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 img {
-    max-width: 50%; /* Ajuste mais proporcional para imagens */
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 8px; /* Bordas arredondadas para um toque mais moderno */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-    transition: transform 0.3s ease; /* Transição suave para interações */
+  max-width: 50%; /* Ajuste mais proporcional para imagens */
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px; /* Bordas arredondadas para um toque mais moderno */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  transition: transform 0.3s ease; /* Transição suave para interações */
 }
 
 img:hover {
-    transform: scale(1.01); /* Efeito de zoom suave ao passar o mouse */
+  transform: scale(1.01); /* Efeito de zoom suave ao passar o mouse */
 }
 
 p {
-    font-size: 1.1rem; /* Aumenta um pouco o tamanho do texto */
-    font-weight: 300; /* Torna o texto mais leve */
-    color: #555; /* Cor de texto um pouco mais suave */
-    margin-top: 0.5rem;
-    max-width: 80%; /* Limita a largura do texto para melhor legibilidade */
+  font-size: 1.1rem; /* Aumenta um pouco o tamanho do texto */
+  font-weight: 300; /* Torna o texto mais leve */
+  color: #555; /* Cor de texto um pouco mais suave */
+  margin-top: 0.5rem;
+  max-width: 80%; /* Limita a largura do texto para melhor legibilidade */
 }

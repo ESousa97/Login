@@ -69,15 +69,18 @@ Veja [CONTRIBUTING.md](CONTRIBUTING.md).
 Veja [SECURITY.md](SECURITY.md).
 
 ## Licença
+
 MIT. Consulte [LICENSE](LICENSE).
 
 **Plataforma:** Implantado na **Vercel** com otimização para aplicações frontend.
 
 **Processo de CI/CD:**
+
 - Deploy totalmente automatizado via integração GitHub
 - Cada `git push` para branch `main` aciona novo build e deploy
 - Zero configuração necessária (detecção automática de projeto estático)
 
 ## Licença
+
 MIT. Consulte [LICENSE](LICENSE).
 {
