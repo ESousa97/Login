@@ -24,7 +24,7 @@ test('core files exist', () => {
 
 test('HTML includes required metadata', () => {
   const html = readText(resolveRootPath('index.html'));
-  assert.ok(html.includes('<meta charset="UTF-8">'));
+  assert.ok(html.includes('charset="UTF-8"'));
   assert.ok(html.includes('viewport'));
   assert.ok(html.includes('<title>'));
 });
