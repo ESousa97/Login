@@ -33,22 +33,20 @@
       body::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background-image:
-          radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-          radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
-        animation: backgroundShift 20s ease-in-out infinite;
+          radial-gradient(circle at 20% 50%, rgb(120 119 198 / 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgb(255 255 255 / 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgb(74 144 226 / 0.1) 0%, transparent 50%);
+        animation: background-shift 20s ease-in-out infinite;
       }
 
-      @keyframes backgroundShift {
+      @keyframes background-shift {
         0%,
         100% {
           transform: rotate(0deg) scale(1);
         }
+
         50% {
           transform: rotate(180deg) scale(1.1);
         }
@@ -57,10 +55,7 @@
       /* Floating particles */
       .floating-particles {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         pointer-events: none;
         z-index: 1;
       }
@@ -69,7 +64,7 @@
         position: absolute;
         width: 4px;
         height: 4px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgb(255 255 255 / 0.3);
         border-radius: 50%;
         animation: float 15s infinite linear;
       }
@@ -78,34 +73,42 @@
         left: 10%;
         animation-delay: 0s;
       }
+
       .particle:nth-child(2) {
         left: 20%;
         animation-delay: -3s;
       }
+
       .particle:nth-child(3) {
         left: 30%;
         animation-delay: -6s;
       }
+
       .particle:nth-child(4) {
         left: 40%;
         animation-delay: -9s;
       }
+
       .particle:nth-child(5) {
         left: 50%;
         animation-delay: -12s;
       }
+
       .particle:nth-child(6) {
         left: 60%;
         animation-delay: -2s;
       }
+
       .particle:nth-child(7) {
         left: 70%;
         animation-delay: -5s;
       }
+
       .particle:nth-child(8) {
         left: 80%;
         animation-delay: -8s;
       }
+
       .particle:nth-child(9) {
         left: 90%;
         animation-delay: -11s;
@@ -116,12 +119,15 @@
           transform: translateY(100vh) rotate(0deg);
           opacity: 0;
         }
+
         10% {
           opacity: 1;
         }
+
         90% {
           opacity: 1;
         }
+
         100% {
           transform: translateY(-10vh) rotate(360deg);
           opacity: 0;
@@ -129,31 +135,32 @@
       }
 
       .login-box {
-        background: rgba(31, 31, 31, 0.95);
+        background: rgb(31 31 31 / 0.95);
         width: 100%;
         max-width: 420px;
         padding: 40px;
         border-radius: 20px;
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgb(255 255 255 / 0.1);
         box-shadow:
-          0 25px 45px rgba(0, 0, 0, 0.3),
-          0 0 0 1px rgba(255, 255, 255, 0.05),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          0 25px 45px rgb(0 0 0 / 0.3),
+          0 0 0 1px rgb(255 255 255 / 0.05),
+          inset 0 1px 0 rgb(255 255 255 / 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
         position: relative;
         z-index: 10;
-        animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation: slide-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform-style: preserve-3d;
       }
 
-      @keyframes slideInUp {
+      @keyframes slide-in-up {
         0% {
           opacity: 0;
           transform: translate3d(0, 60px, 0) rotateX(30deg);
         }
+
         100% {
           opacity: 1;
           transform: translate3d(0, 0, 0) rotateX(0deg);
@@ -164,22 +171,21 @@
         margin-bottom: 30px;
         font-size: 2.5em;
         font-weight: 700;
-        color: #ffffff;
+        color: transparent;
         text-align: center;
         position: relative;
         background: linear-gradient(135deg, #ffffff, #e0e0e0);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: titleGlow 2s ease-in-out infinite alternate;
+        animation: title-glow 2s ease-in-out infinite alternate;
       }
 
-      @keyframes titleGlow {
+      @keyframes title-glow {
         0% {
-          text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+          text-shadow: 0 0 20px rgb(74 144 226 / 0.3);
         }
+
         100% {
-          text-shadow: 0 0 30px rgba(127, 35, 248, 0.5);
+          text-shadow: 0 0 30px rgb(127 35 248 / 0.5);
         }
       }
 
@@ -209,7 +215,7 @@
         padding: 15px 20px;
         border: none;
         border-radius: 12px;
-        background: rgba(51, 51, 51, 0.8);
+        background: rgb(51 51 51 / 0.8);
         color: #fff;
         font-size: 1em;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -224,18 +230,18 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+        background: linear-gradient(90deg, transparent, rgb(74 144 226 / 0.1), transparent);
         transition: left 0.6s ease;
         z-index: 1;
       }
 
       input:focus {
         outline: none;
-        background: rgba(51, 51, 51, 1);
+        background: rgb(51 51 51 / 1);
         box-shadow:
-          0 0 0 2px rgba(74, 144, 226, 0.5),
-          0 8px 25px rgba(74, 144, 226, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          0 0 0 2px rgb(74 144 226 / 0.5),
+          0 8px 25px rgb(74 144 226 / 0.15),
+          inset 0 1px 0 rgb(255 255 255 / 0.1);
         transform: translateY(-2px);
       }
 
@@ -261,7 +267,7 @@
         position: relative;
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        box-shadow: 0 8px 25px rgb(74 144 226 / 0.3);
       }
 
       .login-button::before {
@@ -271,13 +277,13 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.2), transparent);
         transition: left 0.6s ease;
       }
 
       .login-button:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+        box-shadow: 0 12px 35px rgb(74 144 226 / 0.4);
         background: linear-gradient(135deg, #5ba0f2, #4080cd);
       }
 
@@ -324,11 +330,8 @@
       .additional-terms a::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(74, 144, 226, 0.1);
+        inset: 0;
+        background: rgb(74 144 226 / 0.1);
         border-radius: 8px;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -357,14 +360,14 @@
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         border-radius: 6px;
         padding: 4px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgb(255 255 255 / 0.1);
         backdrop-filter: blur(10px);
       }
 
       .icon:hover {
         transform: scale(1.15) rotate(5deg);
-        background: rgba(74, 144, 226, 0.2);
-        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+        background: rgb(74 144 226 / 0.2);
+        box-shadow: 0 5px 15px rgb(74 144 226 / 0.3);
       }
 
       footer {
@@ -372,15 +375,15 @@
         bottom: 25px;
         left: 25px;
         font-size: 0.9em;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgb(255 255 255 / 0.8);
         font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 300;
         z-index: 10;
         padding: 12px 20px;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgb(0 0 0 / 0.2);
         border-radius: 20px;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgb(255 255 255 / 0.1);
         transition: all 0.3s ease;
         display: flex;
         align-items: center;
@@ -388,7 +391,7 @@
       }
 
       footer:hover {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgb(0 0 0 / 0.3);
         transform: translateY(-2px);
       }
 
@@ -399,7 +402,7 @@
       }
 
       .footer-links a {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgb(255 255 255 / 0.8);
         text-decoration: none;
         transition: all 0.3s ease;
         padding: 6px;
@@ -411,14 +414,14 @@
 
       .footer-links a:hover {
         color: #4a90e2;
-        background: rgba(74, 144, 226, 0.1);
+        background: rgb(74 144 226 / 0.1);
         transform: translateY(-1px);
       }
 
       .footer-icon {
         width: 20px;
         height: 20px;
-        fill: currentColor;
+        fill: currentcolor;
       }
 
       /* Responsive Design */
@@ -462,13 +465,15 @@
       /* Pulse animation for interactive elements */
       @keyframes pulse {
         0% {
-          box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
+          box-shadow: 0 0 0 0 rgb(74 144 226 / 0.7);
         }
+
         70% {
-          box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+          box-shadow: 0 0 0 10px rgb(74 144 226 / 0);
         }
+
         100% {
-          box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+          box-shadow: 0 0 0 0 rgb(74 144 226 / 0);
         }
       }
 
@@ -489,7 +494,7 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.3), transparent);
         animation: loading 1.5s infinite;
       }
 
@@ -497,6 +502,7 @@
         0% {
           left: -100%;
         }
+
         100% {
           left: 100%;
         }
