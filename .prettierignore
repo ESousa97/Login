@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+.vercel/
+BASELINE.md
+Relatório FINAL.md
