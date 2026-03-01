@@ -16,7 +16,7 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "c8": "^10.1.2",
+    "c8": "^11.0.0",
     "html-validate": "^10.7.0",
     "prettier": "^3.3.3",
     "stylelint": "^17.1.0",
